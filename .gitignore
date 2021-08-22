@@ -70,3 +70,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/StreamingAssets/gcp_credentials.json
+
+# Auth for Wit API
+Auth.cs
+Auth.cs.meta
