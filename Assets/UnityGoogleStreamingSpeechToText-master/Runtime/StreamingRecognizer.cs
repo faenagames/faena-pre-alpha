@@ -43,6 +43,9 @@ namespace GoogleCloudStreamingSpeechToText {
         public delegate void OnFinalResultDelegate(string text);
         public static OnFinalResultDelegate finalResultDelegate;
 
+        //adding in language code option here
+        public string languageCode = "es-CO";
+
         private bool _initialized = false;
         private bool _listening = false;
         private bool _restart = false;
@@ -300,7 +303,7 @@ namespace GoogleCloudStreamingSpeechToText {
                     Config = new RecognitionConfig() {
                         Encoding = RecognitionConfig.Types.AudioEncoding.Linear16,
                         SampleRateHertz = audioConfiguration.sampleRate,
-                        LanguageCode = "en",
+                        LanguageCode = this.languageCode,
                         MaxAlternatives = 1
                     },
                     InterimResults = returnInterimResults,

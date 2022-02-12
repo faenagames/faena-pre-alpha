@@ -18,6 +18,7 @@ namespace GoogleCloudStreamingSpeechToText {
             SerializedProperty startOnAwake = serializedObject.FindProperty("startOnAwake");
             SerializedProperty returnInterimResults = serializedObject.FindProperty("returnInterimResults");
             SerializedProperty enableDebugLogging = serializedObject.FindProperty("enableDebugLogging");
+            SerializedProperty languageCode = serializedObject.FindProperty("languageCode");
             SerializedProperty onStartListening = serializedObject.FindProperty("onStartListening");
             SerializedProperty onStopListening = serializedObject.FindProperty("onStopListening");
             SerializedProperty onFinalResult = serializedObject.FindProperty("onFinalResult");
@@ -37,6 +38,7 @@ namespace GoogleCloudStreamingSpeechToText {
             EditorGUILayout.PropertyField(startOnAwake);
             EditorGUILayout.PropertyField(returnInterimResults);
             EditorGUILayout.PropertyField(enableDebugLogging);
+            EditorGUILayout.PropertyField(languageCode);
 
             EditorGUI.BeginDisabledGroup(!Application.isPlaying);
             if (listener.IsListening()) {
