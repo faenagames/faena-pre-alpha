@@ -38,12 +38,11 @@ public class InkManager : MonoBehaviour
             else
                 Debug.LogError(msg);
         };
-
-        RunStory();
     }
 
     public void ChooseAtIndex(int index)
     {
+        currentStoryChoices.Clear();
         activeStory.ChooseChoiceIndex(index);
         RunStory();
     }
@@ -54,7 +53,7 @@ public class InkManager : MonoBehaviour
         RunStory();
     }
 
-    private void RunStory()
+    public void RunStory()
     {
         while (activeStory.canContinue)
         {
@@ -68,6 +67,7 @@ public class InkManager : MonoBehaviour
             {
                 Choice choice = activeStory.currentChoices[i];
                 currentStoryChoices.Add(choice);
+                Debug.Log("adding choice");
             }
 
             StoryChoiceAvailable(this.currentStoryChoices);
@@ -81,6 +81,7 @@ public class InkManager : MonoBehaviour
 
     private void StoryChoiceAvailable(List<Choice> choices)
     {
-        onChoiceAvailable(choices);
+        if(onChoiceAvailable != null)
+         onChoiceAvailable(choices);
     }
 }
