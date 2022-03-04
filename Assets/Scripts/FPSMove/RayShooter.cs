@@ -17,10 +17,12 @@ public class RayShooter : MonoBehaviour
         Ray ray = _camera.ScreenPointToRay(point);
         RaycastHit hitObject;
 
+
+        //this is only enabled when we want to see the context text in the center of screen
         GameReference.self.AimPopup.SetActive(false);
 
         //Shoot a ray each frame
-        if (Physics.Raycast(ray, out hitObject))
+        if (!GameReference.freezePlayerMovement && Physics.Raycast(ray, out hitObject))
         {
             ReactiveTarget rt = hitObject.transform.gameObject.GetComponent<ReactiveTarget>();
             if (rt != null)

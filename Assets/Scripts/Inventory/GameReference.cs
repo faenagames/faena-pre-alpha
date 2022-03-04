@@ -13,7 +13,8 @@ public class GameReference : MonoBehaviour
     private List<GameObject> itemIcons = new List<GameObject>();
     public GameObject canvasInventory;
     public GameObject prefabIcon;
-    public GameObject optionsPanel;
+    public GameObject canvasOptions;
+    //public List<GameObject> windows = new List<GameObject>();
 
     //Canvas element that shows when aiming at interactive things
     public GameObject AimPopup;
@@ -21,7 +22,7 @@ public class GameReference : MonoBehaviour
 
 
     //Dialogue window
-    public GameObject DialoguePanel;
+    public GameObject canvasDialogue;
 
 
     //freezes player during dialogues/menus
@@ -46,7 +47,7 @@ public class GameReference : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (optionsPanel.activeSelf)
+            if (canvasOptions.activeSelf)
             {
                 CloseOptions();
             }
@@ -55,11 +56,23 @@ public class GameReference : MonoBehaviour
                 OpenOptions();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (canvasInventory.activeSelf)
+            {
+                CloseInventory();
+            }
+            else
+            {
+                OpenInventory();
+            }
+        }
     }
 
     private void SetFreeze()
     {
-        if (!DialoguePanel.active && !optionsPanel.active)
+        if (!canvasDialogue.activeSelf && !canvasOptions.activeSelf && !canvasInventory.activeSelf)
         {
             freezePlayerMovement = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -72,28 +85,38 @@ public class GameReference : MonoBehaviour
             Cursor.visible = true;
         }
     }
+    public void OpenInventory()
+    {
+        canvasInventory.SetActive(true);
+        SetFreeze();
+    }
 
+    public void CloseInventory()
+    {
+        canvasInventory.SetActive(false);
+        SetFreeze();
+    }
     public void OpenOptions()
     {
-        optionsPanel.SetActive(true);
+        canvasOptions.SetActive(true);
         SetFreeze();
     }
 
     public void CloseOptions()
     {
-        optionsPanel.SetActive(false);
+        canvasOptions.SetActive(false);
         SetFreeze();
     }
     public void StartDialogue()
     {
-        DialoguePanel.SetActive(true);
+        canvasDialogue.SetActive(true);
         SetFreeze();
     }
 
     public void CloseDialogue()
     {
-        DialoguePanel.SetActive(false);
-        SetFreeze();
+        canvasDialogue.SetActive(false);
+        SetFreeze(); 
     }
     public void SaveGame()
     {
