@@ -110,6 +110,7 @@ public class GameReference : MonoBehaviour
     public void StartDialogue()
     {
         canvasDialogue.SetActive(true);
+        InkManager.active.RunStory();
         SetFreeze();
     }
 
