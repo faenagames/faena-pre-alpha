@@ -5,11 +5,11 @@ using UnityEngine;
 public class ReactiveDialogue : ReactiveTarget
 {
     [SerializeField]
-    private DialoguePlayer dialoguePlayer;
+    private AudioManager audioManager;
     public override void OnRayClick()
     {
         Debug.Log("Clicked Person");
         GameReference.self.StartDialogue();
-        dialoguePlayer.PlaySound("Assets/Audio/testvoice");
+        audioManager.PlaySound("Assets/Audio/testvoice");
     }
 }

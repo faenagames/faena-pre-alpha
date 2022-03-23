@@ -26,7 +26,7 @@ public class GameReference : MonoBehaviour
 
 
     [SerializeField]
-    private DialoguePlayer dialoguePlayer;
+    private AudioManager audioManager;
 
 
     //freezes player during dialogues/menus
@@ -122,7 +122,7 @@ public class GameReference : MonoBehaviour
     {
         canvasDialogue.SetActive(false);
         SetFreeze();
-        dialoguePlayer.StopSound();
+        audioManager.StopSound();
     }
     public void SaveGame()
     {
