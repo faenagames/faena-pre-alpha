@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioManager : MonoBehaviour
+public class DialoguePlayer : MonoBehaviour
 {
     AudioSource _audioSource;
     // Start is called before the first frame update
