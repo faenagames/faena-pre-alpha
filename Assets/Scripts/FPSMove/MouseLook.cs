@@ -10,11 +10,13 @@ public class MouseLook : MonoBehaviour {
         MouseX = 1,
         MouseY = 2
     }
+    public Slider sensitivitySlider;
     //Declare a public variable to set in Unity's editor.
     public RotationAxes axes = RotationAxes.MouseXAndY;
 	// Use this for initialization
 	void Start () {
-	
+        if (sensitivitySlider != null)
+            sensitivitySlider.value = sensitivityHor;
 	}
 
     //speed of rotation

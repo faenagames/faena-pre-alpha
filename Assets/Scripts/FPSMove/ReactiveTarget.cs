@@ -7,11 +7,11 @@ public class ReactiveTarget : MonoBehaviour
     public string popupText = "Talk";
     public virtual void OnRayClick()
     {
-        Debug.Log("Clicked");
+        //Debug.Log("Clicked");
     }
 
     public virtual void OnRayHit()
     {
-        Debug.Log("Object hit");
+        //Debug.Log("Object hit");
     }
 }

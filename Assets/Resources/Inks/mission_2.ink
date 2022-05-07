@@ -25,7 +25,7 @@ ay muy bueno. perfecto! I knew you could do this. After you greet them,
 they will greet you back, then you respond with who you are and ask 
 them what their name is, listo? ok. Repite: Me llamo Piyáa, 
 ¿cómo te llamas tú?
-*   [Me llamo Piyáa cómo te llamas tú] -> line_5
+*   [me llamo pía cómo te llamas tú] -> line_5
 -> END
 
 === line_5 ===
@@ -72,3 +72,36 @@ Hola Piyáa, me llamo Sarelia.
   nada, a tí. Perfecto!!! you did it!! Ok, estás listo, you’re ready. 
   ¡¡Bring me back todos los nombres!! 
 -> END
+
+ === npc_1 ===
+# char: andreas
+# audio: filename.wav
+ hola.
+ *   hola -> npc_1_met
+ *   hola buenos días -> npc_1_met
+ *   buenos días -> npc_1_met
+
+  === npc_1_met ===
+  -> END
+
+   === npc_2 ===
+# char: maya
+# audio: filename.wav
+ hola.
+ *   hola -> npc_2_met
+ *   hola buenos días -> npc_2_met
+ *   buenos días -> npc_2_met
+
+  === npc_2_met ===
+  -> END
+
+     === npc_3 ===
+# char: gala
+# audio: filename.wav
+ hola.
+ *   hola -> npc_3_met
+ *   hola buenos días -> npc_3_met
+ *   buenos días -> npc_3_met
+
+  === npc_3_met ===
+  -> END

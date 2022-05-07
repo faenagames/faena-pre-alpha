@@ -38,6 +38,8 @@ public class InkManager : MonoBehaviour
             else
                 Debug.LogError(msg);
         };
+
+        QuestDisplay.UpdateQuests();
     }
 
     public void ChooseAtIndex(int index)
@@ -73,10 +75,33 @@ public class InkManager : MonoBehaviour
             StoryChoiceAvailable(this.currentStoryChoices);
         }
     }
+    public void RunStory(string inkKnot)
+    {
+        activeStory.ChoosePathString(inkKnot);
+        while (activeStory.canContinue)
+        {
+            currentStoryText = activeStory.ContinueMaximally();
+            OnStoryTextChange(currentStoryText);
+        }
+
+        if (activeStory.currentChoices.Count > 0)
+        {
+            for (int i = 0; i < activeStory.currentChoices.Count; ++i)
+            {
+                Choice choice = activeStory.currentChoices[i];
+                currentStoryChoices.Add(choice);
+                Debug.Log("adding choice");
+            }
+
+            StoryChoiceAvailable(this.currentStoryChoices);
+        }
+    }
 
     private void OnStoryTextChange(string newText)
     {
         storyTextChangeEvent(newText);
+
+        QuestDisplay.UpdateQuests();
     }
 
     private void StoryChoiceAvailable(List<Choice> choices)

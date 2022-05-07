@@ -117,9 +117,19 @@ public class GameReference : MonoBehaviour
         InkManager.active.RunStory();
         SetFreeze();
     }
+    public void StartDialogue(string inkKnot)
+    {
+        Debug.Log("Running knot: " + inkKnot);
+        canvasDialogue.SetActive(true);
+        InkManager.active.RunStory(inkKnot);
+        SetFreeze();
+    }
 
     public void CloseDialogue()
     {
+        if (canvasOptions.activeSelf)
+            return;
+
         canvasDialogue.SetActive(false);
         SetFreeze();
         audioManager.StopSound();
