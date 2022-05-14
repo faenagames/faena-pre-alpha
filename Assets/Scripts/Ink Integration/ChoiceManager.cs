@@ -67,7 +67,11 @@ public class ChoiceManager : MonoBehaviour
         foreach (char c in s)
         {
             if (!char.IsPunctuation(c))
+            {
+                if (char.IsUpper(c))
+                    char.ToLower(c);
                 sb.Append(c);
+            }
         }
         return sb.ToString();
     }

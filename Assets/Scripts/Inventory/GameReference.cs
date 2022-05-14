@@ -23,6 +23,7 @@ public class GameReference : MonoBehaviour
 
     //Dialogue window
     public GameObject canvasDialogue;
+    public GameObject closeDialogueButton;
 
 
     [SerializeField]
@@ -31,6 +32,8 @@ public class GameReference : MonoBehaviour
 
     //freezes player during dialogues/menus
     public static bool freezePlayerMovement = false;
+
+    public static bool lockInDialogue = false;
 
     private void Start()
     {
@@ -127,7 +130,7 @@ public class GameReference : MonoBehaviour
 
     public void CloseDialogue()
     {
-        if (canvasOptions.activeSelf)
+        if (canvasOptions.activeSelf || lockInDialogue)
             return;
 
         canvasDialogue.SetActive(false);
@@ -181,5 +184,19 @@ public class GameReference : MonoBehaviour
     {
         Debug.Log(Game.current.inventory.RemoveItems(item, 1));
         ShowInventory(Game.current.inventory);
+    }
+
+    public static void LockDialogue()
+    {
+        self.closeDialogueButton.SetActive(false);
+        Debug.Log("Locked in dialogue");
+        lockInDialogue = true;
+    }
+
+    public static void UnlockDialogue()
+    {
+        self.closeDialogueButton.SetActive(true);
+        Debug.Log("Unlocked dialogue");
+        lockInDialogue = false;
     }
 }

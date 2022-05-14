@@ -1,3 +1,7 @@
+EXTERNAL lockDialogue()
+EXTERNAL unlockDialogue()
+
+ ~ lockDialogue()
 Ok here’s what I need you to do now. Mira, 1. you go up to someone, 
 then greet them using “Hola” “Buenos días” or both, 
 “hola, buenos días”. Repite ‘Hola’. 
@@ -46,7 +50,7 @@ just me and you ok? Remember 1. greet (saludar), then I’ll greet you,
 then 2. you introduce yourself and ask what my name is, then I’ll tell 
 you 3. write it down on the paper and say gracias to me! then go move on
  to the next person. You start!
- *   [Hola buenos días] -> modeling_2
+ *   [hola buenos días] -> modeling_2
  -> END
 
  === modeling_2 ===
@@ -54,7 +58,8 @@ you 3. write it down on the paper and say gracias to me! then go move on
 # audio: filename.wav
 # modeling
 Muy buenos días. 
- *   [Me llamo Piyáa cómo te llamas] -> modeling_3
+ *   [me llamo pía cómo te llamas] -> modeling_3
+ *   [me llamo pía cómo te llamas tú] -> modeling_3
  -> END
 
   === modeling_3 ===
@@ -72,6 +77,7 @@ Hola Piyáa, me llamo Sarelia.
   nada, a tí. Perfecto!!! you did it!! Ok, estás listo, you’re ready. 
   ¡¡Bring me back todos los nombres!! 
 -> END
+ ~ unlockDialogue()
 
  === npc_1 ===
 # char: andreas

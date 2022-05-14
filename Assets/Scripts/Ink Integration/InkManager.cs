@@ -29,6 +29,7 @@ public class InkManager : MonoBehaviour
     void Start()
     {
         activeStory = new Story(inkAsset.text);
+        BindFunctions(activeStory);
         currentStoryChoices = new List<Choice>();
 
         //set up error handling
@@ -40,6 +41,12 @@ public class InkManager : MonoBehaviour
         };
 
         QuestDisplay.UpdateQuests();
+    }
+
+    private void BindFunctions(Story inkStory)
+    {
+        inkStory.BindExternalFunction("lockDialogue", () => GameReference.LockDialogue());
+        inkStory.BindExternalFunction("unlockDialogue", () => GameReference.UnlockDialogue());
     }
 
     public void ChooseAtIndex(int index)
